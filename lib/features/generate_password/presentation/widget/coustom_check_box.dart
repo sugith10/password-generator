@@ -1,7 +1,4 @@
-
-
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:password_generator/core/const/constants.dart';
 
