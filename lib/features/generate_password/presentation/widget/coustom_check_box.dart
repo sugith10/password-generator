@@ -49,6 +49,7 @@ class CustomCheckBox extends StatelessWidget {
               Text(
                 label,
                 style: const TextStyle(
+                  fontSize: 12,
                   color: Color.fromARGB(255, 251, 251, 251),
                   fontWeight: FontWeight.w500
                 ),

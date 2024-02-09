@@ -12,7 +12,13 @@ class PasswordLength extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            const Text('Password Length'),
+            Text(
+              'Password Length',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                   activeTickMarkColor: Colors.transparent,
@@ -24,12 +30,13 @@ class PasswordLength extends StatelessWidget {
                 min: 6,
                 max: state.maxPasswordLength.toDouble(),
                 value: state.passwordLength.toDouble(),
-                onChanged: (value) => 
-                context.read<PasswordGenratorBloc>().add(
-                  ChangePasswordLengthEvent(passwordLength: value.toInt())),
+                onChanged: (value) => context.read<PasswordGenratorBloc>().add(
+                    ChangePasswordLengthEvent(passwordLength: value.toInt())),
               ),
             ),
-           const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               width: 50,
               height: 50,
@@ -42,7 +49,7 @@ class PasswordLength extends StatelessWidget {
               child: Center(
                 child: Text(
                   state.passwordLength.toString(),
-                  style: Theme.of(context).textTheme.labelMedium,
+                  // style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
             )
