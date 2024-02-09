@@ -6,9 +6,11 @@ import 'package:password_generator/features/generate_password/data/repositories/
 import 'package:password_generator/features/generate_password/domain/use_cases/pasword_use_case.dart';
 import 'package:password_generator/features/generate_password/presentation/bloc/password_generate_bloc.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/copy_result_container.dart';
+import 'package:password_generator/features/generate_password/presentation/widget/get_divider.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/password_button.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/password_length.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/password_settingfield.dart';
+
 
 class PasswordGeneratePage extends StatelessWidget {
   const PasswordGeneratePage({super.key});
@@ -29,42 +31,32 @@ class _PassWordGeneratePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(defaultPadding),
+        padding: EdgeInsets.all(defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
-            const Spacer(),
-            getDivider(),
-              const Spacer(),
-            const PasswordLength(),
-            const Spacer(),
-            getDivider(),
-            const PassWordSettingField(),
-            const Spacer(),
-            getDivider(),
-            const Spacer(),
-            const CopyResultContainer(),
-            const Spacer(),
-            getDivider(),
-              const Spacer(),
-            const PasswordButton(),
-            const Spacer()
-            
+            Spacer(),
+            GetDivider(),
+            Spacer(),
+            PasswordLength(),
+            Spacer(),
+            GetDivider(),
+            PassWordSettingField(),
+            Spacer(),
+            GetDivider(),
+            Spacer(),
+            CopyResultContainer(),
+            Spacer(),
+            GetDivider(),
+            Spacer(),
+            PasswordButton(),
+            Spacer()
           ],
         ),
       )),
     );
   }
-
-  Padding getDivider() => const Padding(
-        padding: EdgeInsets.only(bottom: defaultPadding),
-        child: Divider(
-          color: primaryColor,
-          thickness: .5,
-        ),
-      );
 }

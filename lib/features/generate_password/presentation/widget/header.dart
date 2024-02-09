@@ -6,20 +6,34 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
-    return Center(
-      child: GradientText(
-        'Password\nGenerator',
-  
-        style:const TextStyle(fontSize: 50, fontWeight: FontWeight.w900, letterSpacing: 1.5),
-        colors: const [
-        Color(0xFF2196F3),
-        Color(0xFFF06292),
-        ],
-        gradientType: GradientType.linear,
-        radius: 2,
-        gradientDirection: GradientDirection.rtl,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GradientText(
+          'Password',
+          style: const TextStyle(
+              fontSize: 50, fontWeight: FontWeight.w900, letterSpacing: 1.5),
+          colors: const [
+            Color(0xFF2196F3),
+            Color(0xFFF06292),
+          ],
+          gradientType: GradientType.linear,
+          radius: 2,
+          gradientDirection: GradientDirection.rtl,
+        ),
+        GradientText(
+          'Generator',
+          style: const TextStyle(
+              fontSize: 50, fontWeight: FontWeight.w900, letterSpacing: 1.5),
+          colors: const [
+            Color(0xFF2196F3),
+            Color(0xFFF06292),
+          ],
+          gradientType: GradientType.linear,
+          radius: 2,
+          gradientDirection: GradientDirection.rtl,
+        ),
+      ],
     );
   }
 }
