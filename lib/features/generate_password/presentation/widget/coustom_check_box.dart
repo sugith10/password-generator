@@ -25,7 +25,7 @@ class CustomCheckBox extends StatelessWidget {
         ),
         onTap: onChanged,
         child: Container(
-
+          
           width: double.infinity,
           padding: const EdgeInsets.symmetric(
             vertical: defaultPadding,
