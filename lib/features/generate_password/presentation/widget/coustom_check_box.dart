@@ -52,7 +52,7 @@ class CustomCheckBox extends StatelessWidget {
               Text(
                 label,
                 style:  TextStyle(
-                  fontSize:_calculateDescriptionFontSize(screenHeight: height, screenWidth: width),
+                  fontSize:Theme.of(context).textTheme.titleSmall!.fontSize,
                   color: Color.fromARGB(255, 251, 251, 251),
                   fontWeight: FontWeight.w500
                 ),

@@ -7,10 +7,10 @@ import 'package:password_generator/features/generate_password/domain/use_cases/p
 import 'package:password_generator/features/generate_password/presentation/bloc/password_generate_bloc.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/copy_result_container.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/get_divider.dart';
+import 'package:password_generator/features/generate_password/presentation/widget/header_two.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/password_button.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/password_length.dart';
 import 'package:password_generator/features/generate_password/presentation/widget/password_settingfield.dart';
-
 
 class PasswordGeneratePage extends StatelessWidget {
   const PasswordGeneratePage({super.key});
@@ -35,26 +35,47 @@ class _PassWordGeneratePage extends StatelessWidget {
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.all(defaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Spacer(),
-            GetDivider(),
-            Spacer(),
-            PasswordLength(),
-            Spacer(),
-            GetDivider(),
-            PassWordSettingField(),
-            Spacer(),
-            GetDivider(),
-            Spacer(),
-            CopyResultContainer(),
-            Spacer(),
-            GetDivider(),
-            Spacer(),
-            PasswordButton(),
-            Spacer()
-          ],
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              
+              Header(),
+              SizedBox(
+                height: 25,
+              ),
+              GetDivider(),
+              SizedBox(
+                height: 25,
+              ),
+              PasswordLength(),
+              SizedBox(
+                height: 25,
+              ),
+              GetDivider(),
+              PassWordSettingField(),
+              SizedBox(
+                height: 25,
+              ),
+              GetDivider(),
+              SizedBox(
+                height: 25,
+              ),
+              CopyResultContainer(),
+              SizedBox(
+                height: 25,
+              ),
+              GetDivider(),
+              SizedBox(
+                height: 10,
+              ),
+              PasswordButton(),
+              SizedBox(
+                height: 25,
+              ),
+            ],
+          ),
         ),
       )),
     );
