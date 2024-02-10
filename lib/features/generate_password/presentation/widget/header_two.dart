@@ -34,6 +34,6 @@ class Header extends StatelessWidget {
           gradientDirection: GradientDirection.rtl,
         ),
       ],
-    );;
+    );
   }
 }
