@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
               titleLarge: TextStyle(color: Color.fromARGB(255, 150, 148, 141)),
         
          labelMedium: TextStyle(color: Color.fromARGB(255, 18, 94, 207)),
-        
             )
           ),
           home: const SplashPage(),
