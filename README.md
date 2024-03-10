@@ -1,16 +1,52 @@
-# password_generator
+# Password Generator
 
-A new Flutter project.
+## Overview
 
-## Getting Started
+Welcome to the Password Generator Flutter project! This application allows users to generate strong and secure passwords based on their specified constraints. The project is built using Flutter and follows the clean architecture with a feature-first approach. The password generation is a one-time process, and users are encouraged to save the generated passwords for future use.
 
-This project is a starting point for a Flutter application.
+### Platforms
 
-A few resources to get you started if this is your first Flutter project:
+- Android: 
+    [Google Play Store](https://play.google.com/store/apps/details?id=in.dayproduction.password_generator&hl=en)
+    [Amazon App Store](https://www.amazon.com/gp/product/B0CVF1K2RR)
+- Web: [Web Application](https://password-generator-e00b6.web.app/)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Folder Structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The project adheres to a clean architecture, organizing the codebase into distinct layers:
+
+- **lib/main.dart**: Entry point of the application.
+- **lib/core**: Holds core components shared across features.
+- **lib/feature**: Contains the feature modules, such as `generate_password`.
+- **lib/feature/generate_password**:
+  - **data**: Data layer, responsible for handling data from external sources.
+  - **domain**: Domain layer, containing business logic and domain entities.
+  - **presentation**: Presentation layer, handling UI and user interactions.
+
+## Features
+
+- Password generation with specified constraints.
+- Clean architecture for maintainability and scalability.
+- One-time password generation to enhance security.
+
+## How to Use
+
+1. Open the application on your preferred platform.
+2. Navigate to the "Generate Password" feature.
+3. Specify your password constraints (e.g., length, uppercase, lowercase).
+4. Hit the "Generate Password" button.
+5. Save the generated password for future use.
+
+## Contributions
+
+Contributions are welcome! Feel free to open issues, submit pull requests, or provide feedback.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions or issues, please reach out through the app's respective platform.
+
+Happy password generating!
