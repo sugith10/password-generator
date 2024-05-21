@@ -11,6 +11,8 @@ Welcome to the Password Generator Flutter project! This application allows users
     [Amazon App Store](https://www.amazon.com/gp/product/B0CVF1K2RR)
 - Web: [Web Application](https://password-generator-e00b6.web.app/)
 
+![password-generator-cover](https://raw.githubusercontent.com/sugith10/images/main/projects/password-generator-cover.png)
+
 ## Folder Structure
 
 The project adheres to a clean architecture, organizing the codebase into distinct layers:
