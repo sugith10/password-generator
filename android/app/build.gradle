@@ -14,12 +14,12 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
+    flutterVersionCode = '4'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    flutterVersionName = '1.2.0'
 }
 
 def keystoreProperties = new Properties()
@@ -67,7 +67,7 @@ android {
     }
     buildTypes {
         release {
-           signingConfig signingConfigs.debug
+           signingConfig signingConfigs.release
         }
     }
 

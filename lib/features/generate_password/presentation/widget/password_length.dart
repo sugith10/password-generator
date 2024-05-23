@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:password_generator/core/const/constants.dart';
-import 'package:password_generator/features/generate_password/presentation/bloc/password_generate_bloc.dart';
+
+import '../../../../core/const/constants.dart';
+import '../bloc/password_generate_bloc.dart';
 
 class PasswordLength extends StatelessWidget {
   const PasswordLength({super.key});
@@ -49,7 +50,6 @@ class PasswordLength extends StatelessWidget {
               child: Center(
                 child: Text(
                   state.passwordLength.toString(),
-                  // style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
             )

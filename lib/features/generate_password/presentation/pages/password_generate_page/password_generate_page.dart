@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:password_generator/core/const/constants.dart';
-import 'package:password_generator/features/generate_password/data/local/password_gnerator.dart';
-import 'package:password_generator/features/generate_password/data/repositories/password_repo_impl.dart';
-import 'package:password_generator/features/generate_password/domain/use_cases/pasword_use_case.dart';
-import 'package:password_generator/features/generate_password/presentation/bloc/password_generate_bloc.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/copy_result_container.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/get_divider.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/header_two.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/password_button.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/password_length.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/password_settingfield.dart';
+
+import '../../../../../core/const/constants.dart';
+import '../../../data/local/password_gnerator.dart';
+import '../../../data/repositories/password_repo_impl.dart';
+import '../../../domain/use_cases/pasword_use_case.dart';
+import '../../bloc/password_generate_bloc.dart';
+import '../../widget/copy_result_container.dart';
+import '../../widget/get_divider.dart';
+import '../../widget/password_button.dart';
+import '../../widget/password_length.dart';
+import '../../widget/password_settingfield.dart';
 
 class PasswordGeneratePage extends StatelessWidget {
   const PasswordGeneratePage({super.key});
@@ -34,48 +34,26 @@ class _PassWordGeneratePage extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.all(defaultPadding),
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              
-              Header(),
-              SizedBox(
-                height: 25,
-              ),
-              GetDivider(),
-              SizedBox(
-                height: 25,
-              ),
-              PasswordLength(),
-              SizedBox(
-                height: 25,
-              ),
-              GetDivider(),
-              PassWordSettingField(),
-              SizedBox(
-                height: 25,
-              ),
-              GetDivider(),
-              SizedBox(
-                height: 25,
-              ),
-              CopyResultContainer(),
-              SizedBox(
-                height: 25,
-              ),
-              GetDivider(),
-              SizedBox(
-                height: 10,
-              ),
-              PasswordButton(),
-              SizedBox(
-                height: 25,
-              ),
-            ],
-          ),
+        padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Spacer(flex: 3),
+            PasswordLength(),
+            Spacer(flex: 1),
+            GetDivider(),
+            Spacer(flex: 1),
+            PassWordSettingField(),
+            Spacer(flex: 1),
+            GetDivider(),
+            Spacer(flex: 1),
+            CopyResultContainer(),
+            Spacer(flex: 1),
+            GetDivider(),
+            Spacer(flex: 1),
+            PasswordButton(),
+            Spacer(flex: 3),
+          ],
         ),
       )),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:password_generator/core/const/constants.dart';
+
+import '../../../../core/const/constants.dart';
 
 class GetDivider extends StatelessWidget {
   const GetDivider({
@@ -8,12 +9,9 @@ class GetDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-          padding: EdgeInsets.only(bottom: defaultPadding),
-          child: Divider(
-            color: primaryColor,
-            thickness: .5,
-          ),
-        );
+    return const Divider(
+      color: primaryColor,
+      thickness: .5,
+    );
   }
 }

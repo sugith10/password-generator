@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:password_generator/features/generate_password/presentation/bloc/password_generate_bloc.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/coustom_check_box.dart';
+
+import '../bloc/password_generate_bloc.dart';
+import 'coustom_check_box.dart';
 
 class PassWordSettingField extends StatelessWidget {
   const PassWordSettingField({super.key});
@@ -14,7 +15,7 @@ class PassWordSettingField extends StatelessWidget {
           'Password Settings',
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(height: 10),
         BlocBuilder<PasswordGenratorBloc, PasswordGenratorState>(
           builder: (context, state) {
             return Row(
@@ -25,21 +26,23 @@ class PassWordSettingField extends StatelessWidget {
                       CustomCheckBox(
                         label: 'LowerCase (a-z)',
                         value: state.isLowercase,
-                        onChanged: () => 
-                        context.read<PasswordGenratorBloc>().add(ChangeLowercaseEvent()),
+                        onChanged: () => context
+                            .read<PasswordGenratorBloc>()
+                            .add(ChangeLowercaseEvent()),
                       ),
                       CustomCheckBox(
                         label: 'Numbers (0-9)',
                         value: state.isNumbers,
-                        onChanged: () => 
-                        context.read<PasswordGenratorBloc>().add(ChangeNumbersEvnet()),
+                        onChanged: () => context
+                            .read<PasswordGenratorBloc>()
+                            .add(ChangeNumbersEvnet()),
                       ),
                       CustomCheckBox(
                         label: 'Exclude Duplicate',
                         value: state.isExcludeDuplicate,
-                        onChanged: () => 
-                        context.read<PasswordGenratorBloc>().add(ChangeExcludeDuplicateEvent())
-                        ,
+                        onChanged: () => context
+                            .read<PasswordGenratorBloc>()
+                            .add(ChangeExcludeDuplicateEvent()),
                       ),
                     ],
                   ),
@@ -50,20 +53,23 @@ class PassWordSettingField extends StatelessWidget {
                     CustomCheckBox(
                       label: 'UpperCase (A-Z)',
                       value: state.isUppercase,
-                      onChanged: ()=> 
-                      context.read<PasswordGenratorBloc>().add(ChangeUppercaseEvent()),
+                      onChanged: () => context
+                          .read<PasswordGenratorBloc>()
+                          .add(ChangeUppercaseEvent()),
                     ),
                     CustomCheckBox(
                       label: 'Symbols (!-\$^+)',
                       value: state.isSymbols,
-                      onChanged: () => 
-                      context.read<PasswordGenratorBloc>().add(ChangeSymbolsEvent())
-                      ,
+                      onChanged: () => context
+                          .read<PasswordGenratorBloc>()
+                          .add(ChangeSymbolsEvent()),
                     ),
                     CustomCheckBox(
                       label: 'Include Spaces',
                       value: state.isIncludeSpaces,
-                      onChanged: ()=> context.read<PasswordGenratorBloc>().add(ChangeIncludeSpacesEvent())
+                      onChanged: () => context
+                          .read<PasswordGenratorBloc>()
+                          .add(ChangeIncludeSpacesEvent()),
                     ),
                   ],
                 ))

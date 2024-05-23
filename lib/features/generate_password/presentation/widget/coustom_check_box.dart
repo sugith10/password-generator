@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:password_generator/core/const/constants.dart';
+import 'package:flutter/services.dart';
+
+import '../../../../core/const/constants.dart';
 
 class CustomCheckBox extends StatelessWidget {
   final String label;
@@ -14,19 +15,20 @@ class CustomCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(
         defaultPadding / 4,
       ),
       child: InkWell(
         customBorder: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(defaultPadding),
+          borderRadius: BorderRadius.circular(defaultPadding),
         ),
-        onTap: onChanged,
+        onTap: () {
+          onChanged();
+          HapticFeedback.lightImpact();
+        },
         child: Container(
-          
-          width: double.infinity,
           padding: const EdgeInsets.symmetric(
             vertical: defaultPadding,
           ),
@@ -39,21 +41,24 @@ class CustomCheckBox extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(defaultPadding),
           ),
-          child: Wrap(
+          child: Row(
             children: [
               const SizedBox(width: defaultPadding / 2),
               Icon(
                 value ? Icons.check_box : Icons.check_box_outline_blank,
-                size:  Theme.of(context).textTheme.titleLarge!.fontSize,
+                size: Theme.of(context).textTheme.titleLarge!.fontSize,
                 color: Colors.white,
               ),
               const SizedBox(width: defaultPadding / 2),
-              Text(
-                label,
-                style:  TextStyle(
-                  fontSize:Theme.of(context).textTheme.titleSmall!.fontSize,
-                  color: const Color.fromARGB(255, 251, 251, 251),
-                  fontWeight: FontWeight.w500
+              Expanded(
+                child: Text(
+                  label,
+                  style: TextStyle(
+                      fontSize: width * 0.032,
+                      color: const Color.fromARGB(255, 251, 251, 251),
+                      fontWeight: FontWeight.w500),
+                          maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],
@@ -63,6 +68,3 @@ class CustomCheckBox extends StatelessWidget {
     );
   }
 }
-
-
-

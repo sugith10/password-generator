@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:password_generator/core/const/constants.dart';
-import 'package:password_generator/features/generate_password/presentation/bloc/password_generate_bloc.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+
+import '../../../../core/const/constants.dart';
+import '../bloc/password_generate_bloc.dart';
+import 'info_text.dart';
 
 class PasswordButton extends StatelessWidget {
   const PasswordButton({super.key});
@@ -11,28 +14,25 @@ class PasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Center(
-          child: Text(
-            "Tap this generate password button for password generation",
-            style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 0.642),
-            ),
-          ),
+        const InfoText(
+          text: "Tap to Generate Password",
         ),
-        const SizedBox(
-          height: 35,
-        ),
+        const SizedBox(height: 25),
         GestureDetector(
-            onTap: () => context
-                .read<PasswordGenratorBloc>()
-                .add(GeneratePasswordSubmittedEvent()),
+            onTap: () {
+              HapticFeedback.heavyImpact();
+              context
+                  .read<PasswordGenratorBloc>()
+                  .add(GeneratePasswordSubmittedEvent());
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
               padding: const EdgeInsets.symmetric(vertical: defaultPadding),
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.grey[900],
+                  color: buttonColor,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     const BoxShadow(

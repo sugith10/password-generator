@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color.fromRGBO(224, 224, 224, 1);
-const secondaryColor = Color(0xff2a2d3e);
-const  bgColor = Color.fromRGBO(33, 35, 50, 1);
+const Color primaryColor = Color.fromRGBO(255, 255, 255, 1);
+const Color secondaryColor = Color.fromRGBO(255, 255, 255, 0.642);
+const Color scaffoldColor = Colors.black;
+const Color buttonColor = Color.fromRGBO(33, 33, 33, 1);
 
-const defaultPadding = 16.0;
+const double defaultPadding = 16.0;
