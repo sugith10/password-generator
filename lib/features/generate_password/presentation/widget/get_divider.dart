@@ -12,6 +12,8 @@ class GetDivider extends StatelessWidget {
     return const Divider(
       color: primaryColor,
       thickness: .5,
+      indent: 50,
+      endIndent: 50,
     );
   }
 }

@@ -13,9 +13,11 @@ class PasswordLength extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            Text(
+            const Text(
               'Password Length',
-              style: Theme.of(context).textTheme.titleLarge,
+              style:  TextStyle(
+                color: secondaryColor,
+              ),
             ),
             const SizedBox(
               height: 10,

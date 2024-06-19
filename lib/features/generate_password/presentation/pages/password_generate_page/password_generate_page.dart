@@ -8,6 +8,7 @@ import '../../../domain/use_cases/pasword_use_case.dart';
 import '../../bloc/password_generate_bloc.dart';
 import '../../widget/copy_result_container.dart';
 import '../../widget/get_divider.dart';
+import '../../widget/header.dart';
 import '../../widget/password_button.dart';
 import '../../widget/password_length.dart';
 import '../../widget/password_settingfield.dart';
@@ -31,29 +32,40 @@ class _PassWordGeneratePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Spacer(flex: 3),
-            PasswordLength(),
-            Spacer(flex: 1),
-            GetDivider(),
-            Spacer(flex: 1),
-            PassWordSettingField(),
-            Spacer(flex: 1),
-            GetDivider(),
-            Spacer(flex: 1),
-            CopyResultContainer(),
-            Spacer(flex: 1),
-            GetDivider(),
-            Spacer(flex: 1),
-            PasswordButton(),
-            Spacer(flex: 3),
-          ],
+          child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 700),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 40),
+                  AppLogo(),
+                  SizedBox(height: 25),
+                  GetDivider(),
+                  SizedBox(height: 25),
+                  PasswordLength(),
+                  SizedBox(height: 25),
+                  GetDivider(),
+                  SizedBox(height: 25),
+                  PassWordSettingField(),
+                  SizedBox(height: 25),
+                  GetDivider(),
+                  SizedBox(height: 25),
+                  CopyResultContainer(),
+                  SizedBox(height: 25),
+                  GetDivider(),
+                  SizedBox(height: 25),
+                  PasswordButton(),
+                  SizedBox(height: 40),
+                ],
+              ),
+            ),
+          ),
         ),
       )),
     );

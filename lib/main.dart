@@ -13,17 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Password Generator',
       theme: ThemeData(
           scaffoldBackgroundColor: scaffoldColor,
           fontFamily: 'Poppins',
-          textTheme: TextTheme(
-            bodyMedium: const TextStyle(color: primaryColor),
-            titleLarge:
-                TextStyle(color: secondaryColor, fontSize: width * 0.050),
+          textTheme: const TextTheme(
+            bodyMedium: TextStyle(color: primaryColor),
+            titleLarge: TextStyle(color: secondaryColor),
           ),
           snackBarTheme: const SnackBarThemeData(backgroundColor: buttonColor)),
       home: const SplashPage(),

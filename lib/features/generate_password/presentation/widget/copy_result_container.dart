@@ -44,7 +44,6 @@ class _CopyResultContainerState extends State<CopyResultContainer> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return BlocBuilder<PasswordGenratorBloc, PasswordGenratorState>(
       builder: (context, state) {
         return Column(
@@ -72,16 +71,10 @@ class _CopyResultContainerState extends State<CopyResultContainer> {
                     minLines: 1,
                     controller: state.passwordController,
                     readOnly: true,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: primaryColor,
-                        ),
-                    decoration: InputDecoration(
+                    style: const TextStyle(color: primaryColor, fontSize: 15),
+                    decoration: const InputDecoration(
                       hintText: 'Password will appear here...',
-                      hintStyle:
-                          Theme.of(context).textTheme.titleLarge?.copyWith(
-                                fontSize: width * 0.040,
-                                color: secondaryColor,
-                              ),
+                      hintStyle: TextStyle(color: secondaryColor, fontSize: 15),
                       border: InputBorder.none,
                     ),
                     onTap: () => _onTap(state.passwordController.text),
@@ -92,10 +85,9 @@ class _CopyResultContainerState extends State<CopyResultContainer> {
                     bottom: 0,
                     child: GestureDetector(
                       onTap: () => _onTap(state.passwordController.text),
-                      child: Icon(
+                      child: const Icon(
                         Icons.copy,
                         color: secondaryColor,
-                        size: width * 0.04,
                       ),
                     ),
                   ),

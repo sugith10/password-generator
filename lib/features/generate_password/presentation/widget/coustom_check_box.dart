@@ -15,7 +15,6 @@ class CustomCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(
         defaultPadding / 4,
@@ -53,11 +52,10 @@ class CustomCheckBox extends StatelessWidget {
               Expanded(
                 child: Text(
                   label,
-                  style: TextStyle(
-                      fontSize: width * 0.032,
-                      color: const Color.fromARGB(255, 251, 251, 251),
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 251, 251, 251),
                       fontWeight: FontWeight.w500),
-                          maxLines: 1,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
