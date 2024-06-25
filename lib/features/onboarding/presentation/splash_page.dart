@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-
 import '../../generate_password/presentation/widget/header.dart';
 import '../../generate_password/presentation/pages/password_generate_page/password_generate_page.dart';
 
@@ -16,6 +14,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    _startTimer();
   }
 
   void _startTimer() {
@@ -29,24 +28,11 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
-  final Future<FirebaseApp> _intialization = Firebase.initializeApp();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: FutureBuilder(
-            future: _intialization,
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return const AppLogo();
-              }
-              if (snapshot.connectionState == ConnectionState.done) {
-                _startTimer();
-                return const AppLogo();
-              }
-              return const AppLogo();
-            }),
+        child: AppLogo(),
       ),
     );
   }

@@ -10,5 +10,4 @@ class PasswordRepoImpl implements PasswordRepo {
   String generatePassword(PasswordSettings passwordSettings) {
     return passwordGenerator.generatePassword(passwordSettings);
   }
-  
 }

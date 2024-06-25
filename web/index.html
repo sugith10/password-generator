@@ -33,8 +33,33 @@
   <title>password_generator</title>
   <link rel="manifest" href="manifest.json">
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
 
+    /* Style for the loading screen */
+    #loading-screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading-screen">
+  </div>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -58,9 +83,6 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
-</head>
-
-<body>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 
