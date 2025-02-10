@@ -1,5 +1,9 @@
-import 'package:password_generator/features/generate_password/domain/entities/password_settings.dart';
+import '../entities/password.dart';
+import '../entities/password_settings.dart';
 
-abstract class PasswordRepo{
+abstract interface class PasswordRepo {
   String generatePassword(PasswordSettings passwordSettings);
+  void savePassword(Password password);
+  List<Password> getPasswordHistory();
+  void deletePasswordHistory();
 }

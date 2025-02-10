@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_generator/features/generate_password/presentation/widget/header.dart';
+import '../../generate_password/presentation/widgets/header.dart';
 
 class LoadingPage extends StatelessWidget {
   const LoadingPage({
@@ -11,7 +11,7 @@ class LoadingPage extends StatelessWidget {
     return const Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child:AppLogo(),
+        child: AppLogo(),
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import '../../generate_password/presentation/widget/header.dart';
-import '../../generate_password/presentation/pages/password_generate_page/password_generate_page.dart';
+
+import '../../generate_password/presentation/page/password_generate_page.dart';
+import '../../generate_password/presentation/widgets/header.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -21,8 +23,12 @@ class _SplashPageState extends State<SplashPage> {
     Timer(const Duration(seconds: 2), () {
       if (mounted) {
         Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => const PasswordGeneratePage()),
-          (route) => false,
+          MaterialPageRoute<dynamic>(
+            builder: (_) => const PasswordGeneratePage(),
+          ),
+          //
+          // ignore: always_specify_types
+          (Route route) => false,
         );
       }
     });

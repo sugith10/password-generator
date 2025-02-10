@@ -1,16 +1,6 @@
 part of 'password_generate_bloc.dart';
 
 class PasswordGenratorState {
-  final int passwordLength;
-  final int maxPasswordLength;
-  final bool isLowercase;
-  final bool isUppercase;
-  final bool isNumbers;
-  final bool isSymbols;
-  final bool isExcludeDuplicate;
-  final bool isIncludeSpaces;
-  final TextEditingController passwordController;
-
   PasswordGenratorState({
     required this.passwordLength,
     required this.maxPasswordLength,
@@ -21,6 +11,7 @@ class PasswordGenratorState {
     required this.isExcludeDuplicate,
     required this.isIncludeSpaces,
     required this.passwordController,
+    this.passwordHistory = const <Password>[],
   });
 
   factory PasswordGenratorState.initial() => PasswordGenratorState(
@@ -36,6 +27,16 @@ class PasswordGenratorState {
           text: "",
         ),
       );
+  final int passwordLength;
+  final int maxPasswordLength;
+  final bool isLowercase;
+  final bool isUppercase;
+  final bool isNumbers;
+  final bool isSymbols;
+  final bool isExcludeDuplicate;
+  final bool isIncludeSpaces;
+  final TextEditingController passwordController;
+  final List<Password> passwordHistory;
 
   PasswordGenratorState copyWith({
     int? passwordLength,
@@ -47,6 +48,7 @@ class PasswordGenratorState {
     bool? isExcludeDuplicate,
     bool? isIncludeSpaces,
     String? password,
+    List<Password>? passwordHistory,
   }) =>
       PasswordGenratorState(
         passwordLength: passwordLength ?? this.passwordLength,
@@ -60,5 +62,6 @@ class PasswordGenratorState {
         passwordController: password != null
             ? TextEditingController(text: password)
             : passwordController,
+        passwordHistory: passwordHistory ?? this.passwordHistory,
       );
 }

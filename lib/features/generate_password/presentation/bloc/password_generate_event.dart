@@ -5,9 +5,8 @@ abstract class PasswordGenratorEvent {}
 class ChangeEvent extends PasswordGenratorEvent {}
 
 class ChangePasswordLengthEvent extends ChangeEvent {
-  final int passwordLength;
-
   ChangePasswordLengthEvent({required this.passwordLength});
+  final int passwordLength;
 }
 
 class ChangeLowercaseEvent extends ChangeEvent {}
@@ -22,4 +21,13 @@ class ChangeExcludeDuplicateEvent extends ChangeEvent {}
 
 class ChangeIncludeSpacesEvent extends ChangeEvent {}
 
-class GeneratePasswordSubmittedEvent extends PasswordGenratorEvent{}
+class GeneratePasswordSubmittedEvent extends PasswordGenratorEvent {}
+
+class SavePasswordEvent extends PasswordGenratorEvent {
+  SavePasswordEvent({required this.password});
+  final String password;
+}
+
+class DeletePasswordHistoryEvent extends PasswordGenratorEvent {}
+
+class GetPasswordHistoryEvent extends PasswordGenratorEvent {}

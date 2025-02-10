@@ -1,12 +1,4 @@
 class PasswordSettings {
-  final int passwordLength;
-  final bool withLowercase;
-  final bool withUppercase;
-  final bool withSymbols;
-  final bool withNumbers;
-  final bool excludeDuplicates;
-  final bool includeSpaces;
-
   PasswordSettings({
     required this.passwordLength,
     required this.withLowercase,
@@ -16,4 +8,11 @@ class PasswordSettings {
     required this.excludeDuplicates,
     required this.includeSpaces,
   });
+  final int passwordLength;
+  final bool withLowercase;
+  final bool withUppercase;
+  final bool withSymbols;
+  final bool withNumbers;
+  final bool excludeDuplicates;
+  final bool includeSpaces;
 }
