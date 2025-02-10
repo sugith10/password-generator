@@ -4,16 +4,16 @@ dev_dependencies:
 flutter_launcher_icons:
   web:
     generate: true
-    image_path: "asset/logo/logo.png"
+    image_path: "assets/svg/password_generator_log.svg"
     background_color: "#hexcode"
     theme_color: "#hexcode"
   windows:
     generate: true
-    image_path: "asset/logo/logo.png"
-    icon_size: 48 
+    image_path: "assets/svg/password_generator_log.svg"
+    icon_size: 48
   macos:
     generate: true
-    image_path: "asset/logo/logo.png"
+    image_path: "assets/svg/password_generator_log.svg"
   linux:
     generate: true
-    image_path: "asset/logo/logo.png"
+    image_path: "assets/svg/password_generator_log.svg"

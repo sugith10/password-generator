@@ -15,7 +15,7 @@ class PasswordHistoryLocal {
 
   void savePassword({required PasswordModel password}) {
     _box.put(
-      DateTime.now().millisecondsSinceEpoch.toString(),
+      password.password,
       password,
     );
   }

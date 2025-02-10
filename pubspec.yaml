@@ -1,5 +1,5 @@
 name: password_generator
-description: "A new Flutter project."
+description: "A modern password generator app with customizable options, beautiful UI, and secure password creation features."
 
 publish_to: "none"
 
@@ -17,6 +17,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.0.0
   flutter_iconly: ^1.0.2
+  flutter_svg: ^2.0.17
   google_fonts: ^6.2.1
   hive_ce: ^2.10.1
   hive_ce_flutter: ^2.2.0
@@ -24,7 +25,6 @@ dependencies:
   iconsax_flutter: ^1.0.0
   intl: ^0.20.2
   path_provider: ^2.1.5
-  simple_gradient_text: ^1.3.0
   sleek_circular_slider: ^2.0.1
   toastification: ^2.3.0
 
@@ -37,3 +37,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/svg/

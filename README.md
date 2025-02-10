@@ -1,54 +1,74 @@
 # Password Generator
 
-## Overview
-
-Welcome to the Password Generator Flutter project! This application allows users to generate strong and secure passwords based on their specified constraints. The project is built using Flutter and follows the clean architecture with a feature-first approach. The password generation is a one-time process, and users are encouraged to save the generated passwords for future use.
-
-### Platforms
-
-- Android: 
-    [Google Play Store](https://play.google.com/store/apps/details?id=in.dayproduction.password_generator&hl=en)
-    [Amazon App Store](https://www.amazon.com/gp/product/B0CVF1K2RR)
-- Web: [Web Application](https://password-generator-e00b6.web.app/)
-
-![password-generator-cover](https://raw.githubusercontent.com/sugith10/images/main/projects/password-generator-cover.png)
-
-## Folder Structure
-
-The project adheres to a clean architecture, organizing the codebase into distinct layers:
-
-- **lib/main.dart**: Entry point of the application.
-- **lib/core**: Holds core components shared across features.
-- **lib/feature**: Contains the feature modules, such as `generate_password`.
-- **lib/feature/generate_password**:
-  - **data**: Data layer, responsible for handling data from external sources.
-  - **domain**: Domain layer, containing business logic and domain entities.
-  - **presentation**: Presentation layer, handling UI and user interactions.
+A modern, feature-rich password generator application built with Flutter that helps users create strong, secure passwords with a beautiful user interface.
 
 ## Features
 
-- Password generation with specified constraints.
-- Clean architecture for maintainability and scalability.
-- One-time password generation to enhance security.
+- 🎯 Interactive circular slider for password length selection
+- 🔐 Customizable password generation options:
+  - Uppercase letters (A-Z)
+  - Lowercase letters (a-z)
+  - Numbers (0-9)
+  - Special characters (!@#$%^&*)
+- 🎨 Sleek and modern dark theme design
+- 📱 Cross-platform support (iOS & Android)
+- 💾 Save favorite passwords locally
+- 📊 Password strength indicator
+- 📋 One-tap copy to clipboard
 
-## How to Use
+## Technical Details
 
-1. Open the application on your preferred platform.
-2. Navigate to the "Generate Password" feature.
-3. Specify your password constraints (e.g., length, uppercase, lowercase).
-4. Hit the "Generate Password" button.
-5. Save the generated password for future use.
+- Built with Flutter 3.27
+- Uses BLoC pattern for state management
+- Local storage with Hive
+- Custom animations and UI components
+- Clean Architecture principles
+- Material 3 design system
 
-## Contributions
+## Screenshots
 
-Contributions are welcome! Feel free to open issues, submit pull requests, or provide feedback.
+[Add your app screenshots here]
+
+## Getting Started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/password_generator.git
+```
+
+2. Install dependencies
+
+```bash
+flutter pub get
+```
+
+3. Run the app
+
+```bash
+flutter run
+```
+
+## Architecture
+
+The project follows Clean Architecture principles with the following layers:
+
+- **Presentation**: Widgets, BLoC
+- **Domain**: Use Cases, Entities, Repository Interfaces
+- **Data**: Repository Implementations, Data Sources
+
+## Dependencies
+
+- flutter_bloc: State management
+- hive_ce: Local storage
+- sleek_circular_slider: Custom slider widget
+- animate_do: Animations
+- flutter_svg: SVG support
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-If you have any questions or issues, please reach out through the app's respective platform.
-
-Happy password generating!
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -62,14 +62,11 @@ class _PassWordGeneratePage extends StatelessWidget {
                     HistoryButton(),
                     PasswordLength(),
                     SizedBox(height: 10),
-
                     PassWordSettingField(),
                     SizedBox(height: 20),
-
                     GetDivider(),
                     SizedBox(height: 20),
                     PasswordButton(),
-                    // // SizedBox(height: 20),
                   ],
                 ),
               ),

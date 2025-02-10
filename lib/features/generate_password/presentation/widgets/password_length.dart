@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -17,100 +16,21 @@ class PasswordLength extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PasswordGenratorBloc, PasswordGenratorState>(
       builder: (BuildContext context, PasswordGenratorState state) {
-        return const SliderWidget();
+        return const _SliderWidget();
       },
     );
   }
 }
 
-class CircularSliderTrackShape extends SliderTrackShape {
-  const CircularSliderTrackShape({
-    required this.gradient,
-  });
-
-  final Gradient gradient;
-
-  @override
-  Rect getPreferredRect({
-    required RenderBox parentBox,
-    required SliderThemeData sliderTheme,
-    Offset offset = Offset.zero,
-    bool isEnabled = false,
-    bool isDiscrete = false,
-  }) {
-    final double trackHeight = sliderTheme.trackHeight ?? 4;
-    final double trackLeft = offset.dx;
-    final double trackTop = offset.dy;
-    final double trackWidth = parentBox.size.width;
-    final double trackBottom = parentBox.size.height;
-    return Rect.fromLTRB(trackLeft, trackTop, trackWidth, trackBottom);
-  }
-
-  @override
-  void paint(
-    PaintingContext context,
-    Offset offset, {
-    required RenderBox parentBox,
-    required SliderThemeData sliderTheme,
-    required Animation<double> enableAnimation,
-    required Offset thumbCenter,
-    required TextDirection textDirection,
-    Offset? secondaryOffset,
-    bool isEnabled = false,
-    bool isDiscrete = false,
-  }) {
-    if (sliderTheme.trackHeight == 0) {
-      return;
-    }
-
-    final Rect trackRect = getPreferredRect(
-      parentBox: parentBox,
-      offset: offset,
-      sliderTheme: sliderTheme,
-      isEnabled: isEnabled,
-      isDiscrete: isDiscrete,
-    );
-    final double radius = math.min(trackRect.width, trackRect.height) / 2;
-    final Offset center = trackRect.center;
-
-    final Paint paint = Paint()
-      ..shader = gradient.createShader(trackRect)
-      ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = sliderTheme.trackHeight ?? 4;
-
-    // Draw background track
-    context.canvas.drawCircle(
-      center,
-      radius,
-      paint..color = Colors.grey.withValues(alpha: 0.2),
-    );
-
-    // Draw active track
-    const double startAngle = -math.pi / 2; // Start from top
-    final double sweepAngle = 2 * math.pi * (thumbCenter.dx / trackRect.width);
-
-    final Path path = Path()
-      ..addArc(
-        Rect.fromCircle(center: center, radius: radius),
-        startAngle,
-        sweepAngle,
-      );
-
-    context.canvas
-        .drawPath(path, paint..shader = gradient.createShader(trackRect));
-  }
-}
-
-class SliderWidget extends StatefulWidget {
-  const SliderWidget({super.key});
+class _SliderWidget extends StatefulWidget {
+  const _SliderWidget();
 
   @override
   _SliderWidgetState createState() => _SliderWidgetState();
 }
 
-class _SliderWidgetState extends State<SliderWidget> {
-  double progressVal = 0.5;
+class _SliderWidgetState extends State<_SliderWidget> {
+  double progressVal = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -133,7 +53,7 @@ class _SliderWidgetState extends State<SliderWidget> {
                   stops: <double>[progressVal, progressVal],
                 ).createShader(rect);
               },
-              child: const CustomArc(),
+              child: const _CustomArc(),
             ),
           ),
           Container(
@@ -196,8 +116,8 @@ class _SliderWidgetState extends State<SliderWidget> {
   }
 }
 
-class CustomArc extends StatelessWidget {
-  const CustomArc({super.key});
+class _CustomArc extends StatelessWidget {
+  const _CustomArc();
 
   @override
   Widget build(BuildContext context) {
@@ -213,25 +133,25 @@ class CustomArcPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()
       ..color = primaryColor
-      ..strokeWidth = 4.0
+      ..strokeWidth = 6.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeJoin = StrokeJoin.round;
 
+    // Calculate the exact center and radius
+    final Offset center = Offset(size.width / 2, size.height / 2);
+    final double radius = (size.width - paint.strokeWidth) / 2;
+
     final Path path = Path()
-      ..moveTo(0, size.height / 2)
+      // Start slightly inside the edge to prevent leaking
       ..addArc(
-        Rect.fromCenter(
-          center: Offset(size.height / 2, size.width / 2),
-          width: size.width,
-          height: size.height,
-        ),
-        pi,
-        pi,
+        Rect.fromCircle(center: center, radius: radius),
+        math.pi + 0.02, // Add small offset to prevent edge leaking
+        math.pi - 0.04, // Subtract offset from both ends
       );
 
     final Path dashPath = Path();
-    const double dashWidth = 9;
+    const double dashWidth = 10;
     const double dashSpace = 10;
     double distance = 3;
 
@@ -241,8 +161,7 @@ class CustomArcPainter extends CustomPainter {
           pathMetric.extractPath(distance, distance + dashWidth),
           Offset.zero,
         );
-        distance += dashWidth;
-        distance += dashSpace;
+        distance += dashWidth + dashSpace;
       }
     }
 
